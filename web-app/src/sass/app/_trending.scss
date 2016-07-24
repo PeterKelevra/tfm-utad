@@ -1,0 +1,20 @@
+#trendingPage {
+    h3 {
+        font-weight: bold;
+    }
+    table {
+        th {
+            font-weight: bold;
+        }
+        td {
+            line-height: 18px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+        width: 50%;
+    }
+}

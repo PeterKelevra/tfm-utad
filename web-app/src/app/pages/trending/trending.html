@@ -1,0 +1,32 @@
+<div id="trendingPage" class="widgets">
+
+    <div class="row">
+
+        <input type="text" class="form-control form-control-rounded" ng-model="filter" placeholder="Filter">
+
+        <div ng-repeat="(country, events) in trendingTops.eventsByCountry" class="col-md-6"
+             ng-show="!filter || isoCountries.getName(country).toLowerCase().indexOf(filter.toLowerCase()) >= 0">
+            <div ba-panel ba-panel-title="{{isoCountries.getName(country)}}" ba-panel-class="with-scroll">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="table-id">#</th>
+                        <th align="left">Event</th>
+                        <th width="180">Event Date</th>
+                        <th width="60">Resp.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="event in events | orderBy : '-responses'">
+                        <td class="table-id">{{$index+1}}</td>
+                        <td align="left">{{event.name}}</td>
+                        <td>{{event.time | date : "medium"}}</td>
+                        <td align="center">{{event.responses}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

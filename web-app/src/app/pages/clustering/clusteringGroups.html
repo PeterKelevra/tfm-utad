@@ -1,0 +1,28 @@
+<div id="groupClusteringModal" class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title">Cluster {{clusterId + 1}} &raquo; Groups</h4>
+    </div>
+    <div class="modal-body">
+        <div class="groups">
+            <div ng-repeat="hit in groups.hits" ng-init="group = hit._source" class="col-md-12">
+                <div class="panel panel-default bootstrap-panel">
+                    <div class="panel-heading">{{group.name}}</div>
+                    <div class="panel-body">
+                        {{group.topics.join(', ')}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination-wrapper">
+            <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" num-pages="numPages" class="pagination-sm" previous-text="&lsaquo;"
+                            next-text="&rsaquo;" max-size="maxSize" first-text="&laquo;" last-text="&raquo;" rotate="true" force-ellipses="true"
+                            ng-change="pageChanged(currentPage)"></uib-pagination>
+            <div class="num-pages">Page {{currentPage}} of {{numPages}}</div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div id="groups" class="widgets">
+
+    <div class="pagination-div">
+        <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" num-pages="numPages" class="pagination-sm"
+                        previous-text="&lsaquo;"
+                        next-text="&rsaquo;" max-size="maxSize" first-text="&laquo;" last-text="&raquo;" rotate="true" force-ellipses="true"
+                        ng-change="loadContent()"></uib-pagination>
+        <span class="num-pages">Page {{currentPage}} of {{numPages}}</span>
+    </div>
+
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th width="70%"><b>Event</b></th>
+                <th width="180"><b>Event Date</b></th>
+                <th width="80"><b>Responses</b></th>
+                <th width="80"><b>Prediction</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="hit in events.hits" ng-init="item = hit._source">
+                <td class="table-id">{{item.name}}</td>
+                <td>{{item.time | date : "medium"}}</td>
+                <td align="center">{{item.yes_rsvp_count}}</td>
+                <td align="center">{{item.prediction_yes}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <pre class="total">
+         Total Predicted Events: {{events.total | number}}
+    </pre>
+
+</div>

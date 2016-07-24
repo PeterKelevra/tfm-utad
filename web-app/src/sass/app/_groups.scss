@@ -1,0 +1,76 @@
+#groups {
+
+    .panel {
+        height: 300px;
+        img {
+            float: left;
+            max-height: 200px;
+            max-width: 300px;
+            padding: 0 10px 10px 0;
+        }
+        span {
+            margin-right: 20px;
+        }
+    }
+
+    label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    table.filter {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .info {
+        border-bottom: 1px dashed #CCC;
+        margin-bottom: 10px;
+    }
+    .country-select {
+        max-width: 200px;
+        display: inline-block;
+        margin-right: 20px;
+    }
+    .sort-select {
+        width: 200px;
+        display: inline-block;
+    }
+    .order-select {
+        width: 150px;
+        display: inline-block;
+    }
+    .country-filter {
+        margin-bottom: 10px;
+        text-align: right;
+    }
+    input.form-control {
+        display: inline-block;
+        width: 70px;
+        margin-right: 10px;
+        text-align: center;
+    }
+    .total {
+        overflow: hidden;
+        text-align: center;
+        line-height: 12pt;
+        padding-bottom: 0;
+        padding-top: 10px;
+        font-size: 12pt;
+        font-weight: bold;
+    }
+    .pagination-div {
+        a {
+            font-size: 12pt;
+        }
+        width: 100%;
+        text-align: center;
+        .num-pages {
+            float: right;
+            margin: 30px 30px 0 0;
+        }
+        .pagination {
+            margin-top: 0;
+        }
+    }
+}

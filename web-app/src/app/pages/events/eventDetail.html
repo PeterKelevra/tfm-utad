@@ -1,0 +1,29 @@
+<div id="eventDetail" class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title">{{event.name}}</h4>
+    </div>
+    <div class="modal-body">
+        <h1 ng-if="!event.id">Event info not found!</h1>
+        <div ng-if="event.id">
+            <label>County:</label>
+            <span>{{event.group.city}} - {{event.group.localized_country_name}}</span>
+            <label>Category:</label>
+            <span>{{event.group.category.name}}</span>
+            <label>Date:</label>
+            <span>{{event.time | date}} {{event.local_time}}</span>
+            <label>Members:</label>
+            <span>{{event.group.members}}</span>
+            <label>Confirmations:</label>
+            <span>{{event.yes_rsvp_count}}</span>
+            <div>
+                <img src="{{event.group.group_photo.photo_link || obj.group.photos[0].photo_link}}"/>
+                <div><label>Group:</label>{{event.group.name}}</div>
+                <div ng-bind-html="event.description"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

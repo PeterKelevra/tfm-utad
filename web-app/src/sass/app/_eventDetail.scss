@@ -1,0 +1,11 @@
+#eventDetail {
+    margin-top: 80px;
+    .modal-body {
+        height: 700px;
+        overflow: scroll;
+    }
+    span {
+        display: inline-block;
+        margin-right: 15px;
+    }
+}

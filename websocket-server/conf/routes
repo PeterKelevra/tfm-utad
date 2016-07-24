@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# basic alive check
+GET         /                              controllers.Application.index
+GET         /responses-limit               controllers.Application.getResponsesLimit
+POST        /responses-limit/:limit        controllers.Application.setResponsesLimit(limit: Long)
+GET         /event-alerts                  controllers.Application.eventAlerts
+GET         /trending-tops                 controllers.Application.trendingTops()
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                  controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,0 +1,39 @@
+#clustering {
+    img {
+        width: 100%;
+    }
+    .panel {
+        cursor: pointer;
+    }
+    .panel-body {
+        padding: 0;
+    }
+}
+
+#groupClusteringModal {
+    margin-top: 100px;
+    .modal-body {
+        padding: 0 0 20px 0;
+    }
+    .groups {
+        height: 600px;
+        overflow: scroll;
+    }
+    .panel {
+        margin-bottom: 10px;
+    }
+    .panel-heading {
+        height: 30px;
+        padding: 7px 22px;
+    }
+    .panel-body {
+        padding: 8px 22px;
+    }
+    .pagination-wrapper {
+        width: 100%;
+        text-align: center;
+        .pagination {
+            margin: 0 0 10px 0;
+        }
+    }
+}

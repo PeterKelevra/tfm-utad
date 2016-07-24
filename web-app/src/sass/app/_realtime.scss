@@ -1,0 +1,46 @@
+#realtimePage {
+    h3 {
+        font-weight: bold;
+    }
+
+    .counter {
+        padding-top: 15px;
+        font-size: 50pt;
+        text-align: center;
+        line-height: 60px;
+    }
+    .first-row {
+        .panel-body {
+            padding: 5px;
+            height: 110px;
+        }
+        .chart-container {
+            height: 100px !important;
+            width: 200px !important;
+        }
+        .pie-legend {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+        }
+    }
+
+    .table-striped {
+        th {
+            font-weight: bold;
+        }
+        td {
+            text-align: left;
+        }
+    }
+
+    #iframeResponsesBySecond {
+        .panel-body {
+            padding-top: 5px;
+        }
+        .iframe-wrapper {
+            height: 210px;
+            overflow: hidden;
+        }
+    }
+}

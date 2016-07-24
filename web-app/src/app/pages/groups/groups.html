@@ -1,0 +1,62 @@
+<div id="groups" class="widgets">
+
+    <div class="pagination-div">
+        <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" num-pages="numPages" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" max-size="maxSize" first-text="&laquo;" last-text="&raquo;" rotate="true" force-ellipses="true"
+                        ng-change="loadContent()"></uib-pagination>
+        <span class="num-pages">Page {{currentPage}} of {{numPages}}</span>
+    </div>
+    <table class="filter">
+        <tr>
+            <td>
+                <label>Sort by:</label>
+                <select class="form-control selectpicker sort-select" selectpicker title="Select Field"
+                        ng-model="sortFields.selected" ng-options="item as item.label for item in sortFields" ng-change="loadContent()">
+                </select>
+                <span ng-show="sortFields.selected">
+                    <select ng-model="sort" class="form-control selectpicker order-select" title="Order" selectpicker
+                            ng-change="loadContent()">
+                        <option value="asc">Ascendent</option>
+                        <option value="desc">Descendent</option>
+                    </select>
+                </span>
+            </td>
+            <td>
+                <div ng-if="countries" class="country-filter">
+                    <label>Filter by Country:</label>
+                    <select class="form-control selectpicker country-select" selectpicker title="Select Country"
+                            ng-model="countries.selected" ng-options="item as item.key for item in countries" ng-change="applyFitler()">
+                    </select>
+                    <button ng-show="countries.selected" type="button" class="btn btn-primary" ng-click="resetFilter()">Reset filter</button>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+    <div class="col-md-12" ng-repeat="hit in groups.hits" ng-init="obj = hit._source">
+        <div ba-panel ba-panel-title="{{obj.name}}" ba-panel-class="xsmall-panel light-text with-scroll">
+            <div class="info">
+                <label>City:</label>
+                <span>{{obj.city}} - {{obj.localized_country_name}}</span>
+                <label>Category:</label>
+                <span>{{obj.category.name}}</span>
+                <label>Created:</label>
+                <span>{{obj.created | date}}</span>
+                <label>Members:</label>
+                <span>{{obj.members}}</span>
+
+                <a href="{{obj.link}}" target="_blank">Meetup page</a>
+
+            </div>
+            <img src="{{obj.group_photo.photo_link || obj.photos[0].photo_link}}"/>
+            <div ng-bind-html="obj.description"></div>
+        </div>
+    </div>
+
+
+    <pre class="total">
+         Total Groups: {{groups.total | number}}
+    </pre>
+
+</div>

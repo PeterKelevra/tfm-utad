@@ -1,0 +1,10 @@
+<div id="clustering" class="widgets">
+    <div class="col-md-6" ng-repeat="cluster in data" ng-click="open($index)">
+        <div class="panel panel-default bootstrap-panel">
+            <div class="panel-heading">{{cluster.title}}</div>
+            <div class="panel-body">
+                <img ng-src="{{cluster.img}}"/>
+            </div>
+        </div>
+    </div>
+</div>

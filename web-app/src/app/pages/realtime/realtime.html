@@ -1,0 +1,103 @@
+<div id="realtimePage" class="widgets">
+
+    <div class="row first-row">
+        <div class="col-md-12 col-lg-4">
+            <div ba-panel ba-panel-title="Responses">
+                <div class="counter">{{numResponses}}</div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <div ba-panel ba-panel-title="Countries / Cities">
+                <div class="counter">{{numCountries}} / {{numCities}}</div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <div ba-panel ba-panel-title="Yes / No">
+                <canvas class="chart chart-pie"
+                        chart-legend="true" chart-options="pieChartOptions" chart-data="yesNoData" chart-labels="yesNoLabels">
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+    <div id="iframeResponsesBySecond" class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="Responses by Second">
+                <div class="iframe-wrapper">
+                    <iframe ng-src="{{responsesBySecondSrc}}" width="100%" height="300" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div ba-panel ba-panel-title="Top 10 Countries by Responses" ba-panel-class="with-scroll">
+                <canvas class="chart chart-pie"
+                        chart-legend="true" chart-options="pieChartOptions" chart-data="responsesByCountry.pieData" chart-labels="responsesByCountry.pieLabels">
+                </canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div ba-panel ba-panel-title="Top 10 Countries. Yes / No" ba-panel-class="with-scroll col-eq-height">
+                <canvas class="chart chart-bar" chart-legend="true" chart-series="responsesByCountry.series" chart-data="responsesByCountry.data"
+                        chart-labels="responsesByCountry.labels"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- top 10 counties -->
+        <div class="col-md-6">
+            <div ba-panel ba-panel-title="Top Countries by #Responses">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="table-id">#</th>
+                        <th align="left">Country</th>
+                        <th width="50" align="center">Yes</th>
+                        <th width="50" align="center">No</th>
+                        <th width="50" align="center">Resp.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="counter in countriesTableData | orderBy : '-total'">
+                        <td class="table-id">{{$index+1}}</td>
+                        <td align="center">{{counter.countryName}} ({{counter.country}})</td>
+                        <td align="center">{{counter.yes}}</td>
+                        <td align="center">{{counter.no}}</td>
+                        <td align="center">{{counter.total}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- top 10 cities -->
+        <div class="col-md-6">
+            <div ba-panel ba-panel-title="Top Cities by #Responses">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="table-id">#</th>
+                        <th align="left">City</th>
+                        <th width="50" align="center">Yes</th>
+                        <th width="50" align="center">No</th>
+                        <th width="50" align="center">Resp.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="counter in citiesTableData | orderBy : '-total'">
+                        <td class="table-id">{{$index+1}}</td>
+                        <td align="center">{{counter.city}}</td>
+                        <td align="center">{{counter.yes}}</td>
+                        <td align="center">{{counter.no}}</td>
+                        <td align="center">{{counter.total}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
